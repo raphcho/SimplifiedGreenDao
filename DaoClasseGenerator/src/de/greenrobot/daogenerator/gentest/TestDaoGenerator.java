@@ -2,16 +2,17 @@
 package de.greenrobot.daogenerator.gentest;
 
 import de.greenrobot.daogenerator.DaoGenerator;
+import de.greenrobot.daogenerator.Entity;
 import de.greenrobot.daogenerator.Schema;
 
-public class TemplateDaoGenerator {
+public class TestDaoGenerator {
 	
-	//static Entity yourModel;	
+	static Entity Note;	
 	
 	public static void main(String[] args) throws Exception {
 		
 		// Change by your informations
-		String project = "prettygirls";
+		String project = "noteTest";
 		String pkg = "com.afelio";
 		// Change de database version here when adding or updating tables
 		Integer DatabaseVersion=1;
@@ -22,15 +23,15 @@ public class TemplateDaoGenerator {
 		Schema schema = new Schema(DatabaseVersion, schemaPath);
 		
 		// Add the database
-		// YourModel = schema.addEntity("YourModel");
-		// YourModel.implementsSerializable();
+		Note = schema.addEntity("Note");
+		Note.implementsSerializable();
 		
 		
 		// Field ID
 		// 	YourModel.addIdProperty().columnName("id");
 		// 	OR
-		// 	YourModel.addIdProperty().autoincrement().columnName("id");
-		
+		Note.addIdProperty().autoincrement().columnName("id");
+		Note.addStringProperty("content");
 		
 		// Fields
 		//	STRING
